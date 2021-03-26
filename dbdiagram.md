@@ -51,6 +51,6 @@ Table users {
   id int [pk]
   name varchar
   email varchar
-  isAdmin boolean
+   boolean
 }
 ```
