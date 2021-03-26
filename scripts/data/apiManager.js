@@ -1,3 +1,4 @@
+
 const apiURL = "http://localhost:8088";
 
 //// user functions
@@ -68,6 +69,6 @@ export const getSnacks = () => {
 }
 
 export const getSingleSnack = (snackId) => {
-	return fetch(`${apiURL}/snacks/${snackId}`)
+	return fetch(`${apiURL}/snacks/${snackId}?_expand=type&_expand=shape&_expand=inFlavor&_expand=season`)
 	.then(response => response.json())
 }
