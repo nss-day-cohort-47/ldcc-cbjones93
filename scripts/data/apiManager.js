@@ -74,7 +74,7 @@ export const getSingleSnack = (snackId) => {
  }
  let snackToppingList = [];
  export const getSnackToppings = (snackId) => {
-	return fetch (`http://localhost:8088/snackToppings?snackId=${snackId}&_expand=topping`)
+	return fetch (`http://localhost:8088/snackToppings?snackId=${snackId}&_expand=topping&_expand=snack`)
 	.then(response => response.json())
 	.then(parsedResponse => {
 	snackToppingList = parsedResponse
