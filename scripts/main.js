@@ -7,9 +7,10 @@ import { SnackList } from "./snacks/SnackList.js";
 import { SnackDetails } from "./snacks/SnackDetails.js";
 import { Footer } from "./nav/Footer.js";
 import {
-	logoutUser, setLoggedInUser, loginUser, registerUser, getLoggedInUser,
-	getSnacks, getSingleSnack, getSnackToppings
+	logoutUser, setLoggedInUser, loginUser, registerUser,
+	getSnacks, getSingleSnack, getSnackToppings, getToppings, filterSnackTopping
 } from "./data/apiManager.js";
+
 
 
 
@@ -60,6 +61,20 @@ applicationElement.addEventListener("click", event => {
 // end login register listeners
 
 // snack listeners
+applicationElement.addEventListener("change", event => {
+	if (event.target.id === "navList") {
+		 let toppingValue = event.target.value
+		 filterSnackTopping(toppingValue)
+		 .then(response =>{
+			 let snackArray = [];
+			 response.forEach(topping => {
+				 snackArray.push(topping.snack)
+			 })
+			 const toppingElement = document.querySelector("#mainContent")
+			toppingElement.innerHTML = SnackList(snackArray);
+		 })
+	}
+})
 applicationElement.addEventListener("click", event => {
 	event.preventDefault();
 
@@ -101,6 +116,23 @@ const checkForUser = () => {
 		showLoginRegister();
 	}
 }
+const createToppingList = () => {
+	const entryHTMLSelector = document.querySelector(".form-select");
+	getToppings().then(response =>{
+		response.forEach((toppingObj,index)=>{
+			entryHTMLSelector.options[index+1] = new Option(toppingObj.name,toppingObj.id)
+		})
+	})
+}
+
+//  const showFilteredTopping =() =>{
+// 	 const filteredTopping = makeToppingList().filter(singleTopping =>{
+// 		 if (singleTopping === toppingValue){
+// 			 return singleTopping
+// 		 }
+// 	 })
+// 	 makeToppingList(filteredTopping)
+//  }
 
 const showLoginRegister = () => {
 	//template strings can be used here too
@@ -128,6 +160,7 @@ const startLDSnacks = () => {
 	applicationElement.innerHTML += `<div id="mainContent"></div>`;
 	showSnackList();
 	showFooter();
+	createToppingList();
 
 }
 

@@ -81,3 +81,15 @@ export const getSingleSnack = (snackId) => {
 	return parsedResponse;
 })
 }
+export const getToppings = () => {
+	return fetch(`http://localhost:8088/toppings`)
+	  .then(response => response.json())
+	   }
+	  
+
+
+export const filterSnackTopping = (toppingId) =>{
+	return fetch (`${apiURL}/snackToppings?toppingId=${toppingId}&_expand=snack`)
+	.then(response => response.json())
+}
+
