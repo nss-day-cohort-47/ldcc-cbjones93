@@ -25,7 +25,7 @@ export const NavBar = () => {
 	</ul>
 	</div>` : ""
 
-	const addTypeButton = getLoggedInUser().id ? `
+	const addTypeButton = getLoggedInUser().admin ? `
 	<nav class="navbar navbar-light"">
 		<div class="container-fluid">
 		<form>
