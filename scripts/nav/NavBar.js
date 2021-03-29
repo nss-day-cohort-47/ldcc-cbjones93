@@ -29,8 +29,13 @@ export const NavBar = () => {
 	<nav class="navbar navbar-light"">
 		<div class="container-fluid">
 		<form>
-		<textarea name ="type"></textarea>
+		<div class="typeForm">
+		<input placeholder= "Enter Type Name"name ="type"></input>
 		<button id ="submitType" class="btn btn-outline-primary" type="button">Add A Type</button>
+		</div>
+		<div class = "toppingForm">
+		<input placeholder=" Enter Topping Name"name ="topping"></input>
+		<button id ="submitTopping" class="btn btn-outline-primary" type="button">Add A Topping</button>
 		</form>
 		</div>
 	</nav>` : ""

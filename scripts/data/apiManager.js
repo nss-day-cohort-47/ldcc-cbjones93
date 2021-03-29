@@ -103,3 +103,25 @@ export const addAType = (typeObj) => {
 	})
 	.then(response => response.json())
 }
+
+export const addATopping = (typeObj) => {
+	return fetch (`${apiURL}/toppings`,{
+		method:"POST",
+		headers:{
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(typeObj)
+	})
+	.then(response => response.json())
+}
+
+export const addASnack = (typeObj) => {
+	return fetch (`${apiURL}/snacks`,{
+		method:"POST",
+		headers:{
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(typeObj)
+	})
+	.then(response => response.json())
+}

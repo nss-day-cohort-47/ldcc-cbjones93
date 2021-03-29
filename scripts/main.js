@@ -8,7 +8,7 @@ import { SnackDetails } from "./snacks/SnackDetails.js";
 import { Footer } from "./nav/Footer.js";
 import {
 	logoutUser, setLoggedInUser, loginUser, registerUser,
-	getSnacks, getSingleSnack, getSnackToppings, getToppings, filterSnackTopping, addAType
+	addASnack,getSnacks, getSingleSnack, getSnackToppings, getToppings, filterSnackTopping,addATopping, addAType
 } from "./data/apiManager.js";
 
 
@@ -65,11 +65,38 @@ applicationElement.addEventListener("click", event => {
 applicationElement.addEventListener("click", event => {
 	if(event.target.id === "submitType") {
 		event.preventDefault();
-		const typeEntry = document.querySelector("textarea[name='type']").value
+		const typeEntry = document.querySelector("input[name='type']").value
 		const typeObject ={
 			name:typeEntry
 		}
 		addAType(typeObject)
+		.then(response => {
+			location.reload(true);
+		})
+	}
+})
+applicationElement.addEventListener("click", event => {
+	if(event.target.id === "submitTopping") {
+		event.preventDefault();
+		const toppingEntry = document.querySelector("input[name='topping']").value
+		const toppingObject ={
+			name:toppingEntry
+		}
+		addATopping(toppingObject)
+		.then(response => {
+			location.reload(true);
+		})
+	}
+})
+
+applicationElement.addEventListener("click", event => {
+	if(event.target.id === "submitSnack") {
+		event.preventDefault();
+		const snackEntry = document.querySelector("input[name='snack']").value
+		const snackObject ={
+			name:toppingEntry
+		}
+		addATopping(toppingObject)
 		.then(response => {
 			location.reload(true);
 		})

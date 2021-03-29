@@ -33,3 +33,7 @@
 	background-color: rgba(39,41,43,0.03);
 	border: 1px solid rgba(39,41,43,0.1);
 }
+
+.snackForm{
+    border:solid;
+}
