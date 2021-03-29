@@ -93,3 +93,13 @@ export const filterSnackTopping = (toppingId) =>{
 	.then(response => response.json())
 }
 
+export const addAType = (typeObj) => {
+	return fetch (`${apiURL}/types`,{
+		method:"POST",
+		headers:{
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(typeObj)
+	})
+	.then(response => response.json())
+}
