@@ -8,7 +8,7 @@ import { SnackDetails } from "./snacks/SnackDetails.js";
 import { Footer } from "./nav/Footer.js";
 import {
 	logoutUser, setLoggedInUser, loginUser, registerUser,
-	getSnacks, getSingleSnack, getSnackToppings, getToppings, filterSnackTopping
+	getSnacks, getSingleSnack, getSnackToppings, getToppings, filterSnackTopping, addAType
 } from "./data/apiManager.js";
 
 
@@ -61,6 +61,20 @@ applicationElement.addEventListener("click", event => {
 // end login register listeners
 
 // snack listeners
+
+applicationElement.addEventListener("click", event => {
+	if(event.target.id === "submitType") {
+		event.preventDefault();
+		const typeEntry = document.querySelector("textarea[name='type']").value
+		const typeObject ={
+			name:typeEntry
+		}
+		addAType(typeObject)
+		.then(response => {
+			location.reload(true);
+		})
+	}
+})
 applicationElement.addEventListener("change", event => {
 	if (event.target.id === "navList") {
 		 let toppingValue = event.target.value

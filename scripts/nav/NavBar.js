@@ -28,8 +28,10 @@ export const NavBar = () => {
 	const addTypeButton = getLoggedInUser().id ? `
 	<nav class="navbar navbar-light"">
 		<div class="container-fluid">
-			<button class="btn btn-outline-primary" type="button">Add A Type</button>
-		
+		<form>
+		<textarea name ="type"></textarea>
+		<button id ="submitType" class="btn btn-outline-primary" type="button">Add A Type</button>
+		</form>
 		</div>
 	</nav>` : ""
 
