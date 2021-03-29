@@ -1,4 +1,5 @@
-import { getLoggedInUser } from "../data/apiManager.js"
+import { getLoggedInUser, } from "../data/apiManager.js"
+
 
 export const NavBar = () => {
 	//only show navItems and addTypeButton if user is logged in

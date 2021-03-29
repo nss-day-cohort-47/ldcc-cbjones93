@@ -435,6 +435,12 @@
       "email": "ld@ldcc.com",
       "admin": true,
       "id": 1
+    },
+    {
+      "name": "cody",
+      "email": "cody@home.com",
+      "admin": false,
+      "id": 2
     }
   ]
 }

@@ -69,6 +69,15 @@ export const getSnacks = () => {
 }
 
 export const getSingleSnack = (snackId) => {
-	return fetch(`${apiURL}/snacks/${snackId}?_expand=type&_expand=shape&_expand=inFlavor&_expand=season`)
+	return fetch(`${apiURL}/snacks/${snackId}?_expand=type&_expand=shape&_expand=inFlavor&_expand=season&_embed=snackTopping`)
 	.then(response => response.json())
+ }
+ let snackToppingList = [];
+ export const getSnackToppings = (snackId) => {
+	return fetch (`http://localhost:8088/snackToppings?snackId=${snackId}&_expand=topping&_expand=snack`)
+	.then(response => response.json())
+	.then(parsedResponse => {
+	snackToppingList = parsedResponse
+	return parsedResponse;
+})
 }
