@@ -28,7 +28,7 @@ export const NavBar = () => {
 	const addTypeButton = getLoggedInUser().admin ? `
 	<nav class="navbar navbar-light"">
 		<div class="container-fluid">
-		<form>
+		<form class= "new-input-container">
 		<div class="typeForm">
 		<input placeholder= "Enter Type Name"name ="type"></input>
 		<button id ="submitType" class="btn btn-outline-primary" type="button">Add A Type</button>
@@ -36,6 +36,18 @@ export const NavBar = () => {
 		<div class = "toppingForm">
 		<input placeholder=" Enter Topping Name"name ="topping"></input>
 		<button id ="submitTopping" class="btn btn-outline-primary" type="button">Add A Topping</button>
+		<h4> Enter New Snack </h4>
+		<label for ="snackname">Snack Name: </label>
+		<input type ="text" id= "snackName" placeholder ="enter snack name here" name = "snack">
+		<label for ="snackUrl">Snack Image URL: </label>
+		<input type ="text" id= "snackUrl" placeholder ="enter snack URL here" name = "snackUrl">
+		<label for ="snackCount">Snack Count: </label>
+		<input type ="number" id= "snackCount" placeholder ="enter snack count" name = "snackCount">
+		<label for ="topping selector"> Topping Select </label>
+		<select id ="toppingSelect" name ="toppingSelect"><select>
+		<label for ="snackDescription">Snack Description: </label>
+		<input type ="text" id= "snackDescription" placeholder ="enter snack description" name = "snackDescription">
+		<button id ="submitSnack" class="btn btn-outline-primary" type="button">Add A Snack</button>
 		</form>
 		</div>
 	</nav>` : ""

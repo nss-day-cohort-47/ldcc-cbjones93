@@ -93,10 +93,18 @@ applicationElement.addEventListener("click", event => {
 	if(event.target.id === "submitSnack") {
 		event.preventDefault();
 		const snackEntry = document.querySelector("input[name='snack']").value
+		const snackUrlEntry= document.querySelector("input[name='snackUrl']").value
+		const snackCount = document.querySelector("input[name='snackCount']").value
+		const newSnackTopping = document.querySelector("select[name='toppingSelect']").value
+		const snackDescription = document.querySelector("input[name='snackDescription']").value
 		const snackObject ={
-			name:toppingEntry
+			name:snackEntry,
+			snackImg:snackUrlEntry,
+			count:snackCount,
+			description:snackDescription,
+			toppings:newSnackTopping
 		}
-		addATopping(toppingObject)
+		addASnack(snackObject)
 		.then(response => {
 			location.reload(true);
 		})
@@ -116,6 +124,7 @@ applicationElement.addEventListener("change", event => {
 		 })
 	}
 })
+
 applicationElement.addEventListener("click", event => {
 	event.preventDefault();
 
@@ -165,6 +174,14 @@ const createToppingList = () => {
 		})
 	})
 }
+const createToppingListForSnack = () => {
+	const entryHTMLSelector = document.querySelector("#toppingSelect");
+	getToppings().then(response =>{
+		response.forEach((toppingObj,index)=>{
+			entryHTMLSelector.options[index+1] = new Option(toppingObj.name,toppingObj.name)
+		})
+	})
+}
 
 //  const showFilteredTopping =() =>{
 // 	 const filteredTopping = makeToppingList().filter(singleTopping =>{
@@ -202,6 +219,7 @@ const startLDSnacks = () => {
 	showSnackList();
 	showFooter();
 	createToppingList();
+	createToppingListForSnack();
 
 }
 

@@ -131,6 +131,14 @@
       "seasonId": 1,
       "description": "Strawberry-flavored cake with layered creme, coated in white frosting with light blue stripes and purple candy glitter.",
       "toppings": "White icing with light blue stripes and purple glitter."
+    },
+    {
+      "name": "Oatmeal Creme Pies",
+      "snackImg": "https://images-na.ssl-images-amazon.com/images/I/51Eazy-%2B-dL.jpg",
+      "count": "5",
+      "description": "Two moist, wholesome oatmeal cookies baked with molasses and whole oats and then layered around a gooey creme center.",
+      "toppings": "Molasses",
+      "id": 12
     }
   ],
   "toppings": [
@@ -201,6 +209,10 @@
     {
       "name": "Chocolate Icing",
       "id": 17
+    },
+    {
+      "name": "Molasses",
+      "id": 18
     }
   ],
   "snackToppings": [
