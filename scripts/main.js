@@ -104,11 +104,11 @@ applicationElement.addEventListener("click", event => {
 		const snackObject ={
 			name:snackEntry,
 			snackImg:snackUrlEntry,
-			count:snackCount,
-			typeId:newSnackType,
-			shapeId:newSnackShape,
-			inFlavorId:newSnackFlavor,
-			seasonId:newSnackSeason,
+			count:parseInt(snackCount),
+			typeId:parseInt(newSnackType),
+			shapeId:parseInt(newSnackShape),
+			inFlavorId:parseInt(newSnackFlavor),
+			seasonId:parseInt(newSnackSeason),
 			description:snackDescription,
 			toppings:newSnackTopping,
 
