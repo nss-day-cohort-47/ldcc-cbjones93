@@ -85,9 +85,23 @@ export const getToppings = () => {
 	return fetch(`http://localhost:8088/toppings`)
 	  .then(response => response.json())
 	   }
-	  
-
-
+	 
+export const getInFlavors = () => {
+	return fetch (`${apiURL}/inFlavors`)
+	.then(response => response.json())
+}
+export const getTypes = () => {
+	return fetch (`${apiURL}/types`)
+	.then(response => response.json())
+}
+export const getShapes = () => {
+	return fetch (`${apiURL}/shapes`)
+	.then(response => response.json())
+}
+export const getSeasons = () => {
+	return fetch (`${apiURL}/seasons`)
+	.then(response => response.json())
+}
 export const filterSnackTopping = (toppingId) =>{
 	return fetch (`${apiURL}/snackToppings?toppingId=${toppingId}&_expand=snack`)
 	.then(response => response.json())

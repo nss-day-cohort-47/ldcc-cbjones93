@@ -47,6 +47,14 @@ export const NavBar = () => {
 		<select id ="toppingSelect" name ="toppingSelect"><select>
 		<label for ="snackDescription">Snack Description: </label>
 		<input type ="text" id= "snackDescription" placeholder ="enter snack description" name = "snackDescription">
+		<label for ="snackFlavor">Snack Flavor: </label>
+		<select id ="flavorSelect" name ="flavorSelect"><select>
+		<label for ="snackType">Snack Type: </label>
+		<select id ="typeSelect" name ="typeSelect"><select>
+		<label for ="snackShape">Snack Shape: </label>
+		<select id = "shapeSelect" name ="shapeSelect"><select>
+		<label for ="snackSeason">Snack Season: </label>
+		<select id = "seasonSelect" name ="seasonSelect"><select>
 		<button id ="submitSnack" class="btn btn-outline-primary" type="button">Add A Snack</button>
 		</form>
 		</div>

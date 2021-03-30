@@ -8,7 +8,7 @@ import { SnackDetails } from "./snacks/SnackDetails.js";
 import { Footer } from "./nav/Footer.js";
 import {
 	logoutUser, setLoggedInUser, loginUser, registerUser,
-	addASnack,getSnacks, getSingleSnack, getSnackToppings, getToppings, filterSnackTopping,addATopping, addAType
+	addASnack,getSnacks, getShapes,getSeasons, getSingleSnack, getSnackToppings, getToppings, filterSnackTopping,addATopping, addAType, getInFlavors, getTypes
 } from "./data/apiManager.js";
 
 
@@ -97,12 +97,21 @@ applicationElement.addEventListener("click", event => {
 		const snackCount = document.querySelector("input[name='snackCount']").value
 		const newSnackTopping = document.querySelector("select[name='toppingSelect']").value
 		const snackDescription = document.querySelector("input[name='snackDescription']").value
+		const newSnackFlavor = document.querySelector("select[name='flavorSelect']").value
+		const newSnackType = document.querySelector("select[name='typeSelect']").value
+		const newSnackShape = document.querySelector("select[name='shapeSelect']").value
+		const newSnackSeason = document.querySelector("select[name='seasonSelect']").value
 		const snackObject ={
 			name:snackEntry,
 			snackImg:snackUrlEntry,
 			count:snackCount,
+			typeId:newSnackType,
+			shapeId:newSnackShape,
+			inFlavorId:newSnackFlavor,
+			seasonId:newSnackSeason,
 			description:snackDescription,
-			toppings:newSnackTopping
+			toppings:newSnackTopping,
+
 		}
 		addASnack(snackObject)
 		.then(response => {
@@ -174,6 +183,39 @@ const createToppingList = () => {
 		})
 	})
 }
+
+const createInFlavorList = () => {
+	const entryHTMLSelector = document.querySelector("#flavorSelect");
+	getInFlavors().then(response =>{
+		response.forEach((flavorObj,index)=>{
+			entryHTMLSelector.options[index+1] = new Option(flavorObj.name,flavorObj.id)
+		})
+	})
+}
+const createSeasonList = () => {
+	const entryHTMLSelector = document.querySelector("#seasonSelect");
+	getSeasons().then(response =>{
+		response.forEach((flavorObj,index)=>{
+			entryHTMLSelector.options[index+1] = new Option(flavorObj.name,flavorObj.id)
+		})
+	})
+}
+const createTypeList = () => {
+	const entryHTMLSelector = document.querySelector("#typeSelect");
+	getTypes().then(response =>{
+		response.forEach((flavorObj,index)=>{
+			entryHTMLSelector.options[index+1] = new Option(flavorObj.name,flavorObj.id)
+		})
+	})
+}
+const createShapeList = () => {
+	const entryHTMLSelector = document.querySelector("#shapeSelect");
+	getShapes().then(response =>{
+		response.forEach((flavorObj,index)=>{
+			entryHTMLSelector.options[index+1] = new Option(flavorObj.name,flavorObj.id)
+		})
+	})
+}
 const createToppingListForSnack = () => {
 	const entryHTMLSelector = document.querySelector("#toppingSelect");
 	getToppings().then(response =>{
@@ -220,6 +262,10 @@ const startLDSnacks = () => {
 	showFooter();
 	createToppingList();
 	createToppingListForSnack();
+	createInFlavorList();
+	createTypeList();
+	createShapeList();
+	createSeasonList();
 
 }
 

@@ -136,6 +136,10 @@
       "name": "Oatmeal Creme Pies",
       "snackImg": "https://images-na.ssl-images-amazon.com/images/I/51Eazy-%2B-dL.jpg",
       "count": "5",
+      "typeId": "1",
+      "shapeId": "4",
+      "inFlavorId": "2",
+      "seasonId": "1",
       "description": "Two moist, wholesome oatmeal cookies baked with molasses and whole oats and then layered around a gooey creme center.",
       "toppings": "Molasses",
       "id": 12
